@@ -4,7 +4,7 @@
 const linkedin = process.env.NEXT_PUBLIC_LINK_LINKEDIN ;
 const codolio = process.env.NEXT_PUBLIC_LINK_CODOLIO || "#";
 const leetcode = process.env.NEXT_PUBLIC_LINK_LEETCODE || "#";
-const gfg = process.env.NEXT_PUBLIC_LINK_GFG || "#";
+const geeksforgeeks = process.env.NEXT_PUBLIC_LINK_GFG || "#";
 const codeforces = process.env.NEXT_PUBLIC_LINK_CODEFORCES || "#";
 const github = process.env.NEXT_PUBLIC_LINK_GITHUB || "#";
 
