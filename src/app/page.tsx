@@ -1,103 +1,159 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import PayAttention from "@/components/PayAttention";
+import ProfileCard from "@/components/ProfileCard";
+import TopRated from "@/components/TopRated";
+import TopContributors from "@/components/TopContributors";
+import VoteBar from "@/components/VoteBar";
+
+import { Menu, X } from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="bg-gray-50 min-h-screen relative">
+      <div className="max-w-[1100px] mx-auto px-2 flex flex-row justify-between">
+
+        {/* ---------- LEFT MAIN CONTENT ---------- */}
+        <div className="w-full md:w-2/3 mr-0 md:mr-6 space-y-4">
+          {/* Mobile topbar */}
+          <div className="flex justify-between items-center md:hidden mb-2">
+            <p
+              className="text-[#3b5998] font-medium text-lg"
+              style={{ fontFamily: "Verdana, Arial, sans-serif" }}
+            >
+              My Portfolio Launch Announcement
+            </p>
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="p-2 rounded-md bg-gray-200 hover:bg-gray-300 transition"
+            >
+              <Menu size={20} />
+            </button>
+          </div>
+
+          {/* Heading (desktop) */}
+          <p
+            className="hidden md:block text-[#3b5998] font-medium"
+            style={{ fontFamily: "Verdana, Arial, sans-serif" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            My Portfolio Launch Announcement
+          </p>
+
+          <p
+            className="text-[14px]"
+            style={{ fontFamily: "Verdana, Arial, sans-serif" }}
+          >
+            By <span className="text-red-500 font-bold">KRITI RAI</span>, September 2024
+            <img
+              src="/indianflag.png"
+              alt="Indian Flag"
+              width={22}
+              height={14}
+              className="inline mx-2"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </p>
+
+          <div
+            className="border-l-4 border-gray-300 pl-2 space-y-4 text-gray-700 text-[14px]"
+            style={{ fontFamily: "Verdana, Arial, sans-serif" }}
           >
-            Read our docs
-          </a>
+            <p>Hello, everyone!</p>
+
+            <p>
+              I am pleased to announce the launch of my personal portfolio website. 
+              This will serve as the central hub for my projects, experiments, and updates. 
+              Think of it as my own little corner on the web where I share what I build, learn, 
+              and break (and sometimes fix 😅).
+            </p>
+
+            <p>In 2025, my portfolio will go through several iterations as I continue adding:</p>
+
+            <ul className="list-disc ml-3 space-y-1">
+              <li>🚀 <strong>Projects</strong> (full-stack apps, DSA practice, microservices, AI experiments, and more)</li>
+              <li>✍️ <strong>Blogs & notes</strong> (my learnings, mistakes, and coding adventures)</li>
+              <li>🎯 <strong>Goals</strong> (things I am currently working towards)</li>
+            </ul>
+
+            <p>
+              The very first release of my portfolio marks the beginning of this journey.
+              It's open for everyone to explore, stalk, and maybe even get inspired (or amused).
+            </p>
+
+            <p><strong>Some highlights of this launch:</strong></p>
+            <ul className="list-disc ml-3 space-y-1">
+              <li>🏠 Homepage with updates (just like this one).</li>
+              <li>📚 Catalog of projects with detailed writeups.</li>
+              <li>🏆 Contest/problem-solving section inspired by Codeforces.</li>
+              <li>📄 Resume & contact details for collaborations, opportunities, or just saying hi.</li>
+            </ul>
+
+            <p><strong>Special thanks to:</strong></p>
+            <ul className="list-disc ml-3 space-y-1">
+              <li>☕ Chai for powering the late-night coding.</li>
+              <li>🐞 Bugs (for teaching me patience).</li>
+              <li>💡 Curiosity (for making me start this in the first place).</li>
+            </ul>
+
+            <p><strong>Website Information:</strong></p>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>Status: <span className="text-green-600 font-semibold">Live ✨</span></li>
+              <li>Built with: Next.js, Tailwind, and a pinch of chaos</li>
+              <li>Future updates: Dark mode toggle, blog system, and more projects.</li>
+            </ul>
+
+            <p>Picture of me (and some random code screenshots) coming soon 😄</p>
+
+            <p>I eagerly anticipate your visits, feedback, and maybe even feature requests!</p>
+
+            <VoteBar />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* ---------- RIGHT SIDEBAR (unchanged for desktop) ---------- */}
+        <div className="hidden md:flex flex-col space-y-4" style={{ width: "300px" }}>
+
+          <PayAttention />
+          <ProfileCard />
+          <TopRated />
+          <TopContributors />
+        
+        </div>
+
+        {/* ---------- MOBILE SLIDE-IN SIDEBAR ---------- */}
+        <div
+          className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform ${
+            isSidebarOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 ease-in-out z-50 md:hidden p-4 overflow-y-auto`}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-[#3b5998] font-bold text-lg">Quick Links</h2>
+            <button
+              onClick={() => setIsSidebarOpen(false)}
+              className="p-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          <div className="space-y-4">
+            <PayAttention />
+            <ProfileCard />
+            <TopRated />
+            <TopContributors />
+            
+          </div>
+        </div>
+
+        {/* Overlay when sidebar is open */}
+        {isSidebarOpen && (
+          <div
+            onClick={() => setIsSidebarOpen(false)}
+            className="fixed inset-0 bg-black bg-opacity-30 z-40 md:hidden"
+          ></div>
+        )}
+      </div>
     </div>
   );
 }
