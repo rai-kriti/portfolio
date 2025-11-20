@@ -79,7 +79,7 @@ export default function Home() {
 
             <p>
               The very first release of my portfolio marks the beginning of this journey.
-              It's open for everyone to explore, stalk, and maybe even get inspired (or amused).
+              It is open for everyone to explore, stalk, and maybe even get inspired (or amused).
             </p>
 
             <p><strong>Some highlights of this launch:</strong></p>
