@@ -68,7 +68,8 @@ export default function Contact() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        🚀 Whether it's code, chai, or collaboration — I’m just one message away!
+        🚀 Whether it&apos;s code, chai, or collaboration — I&apos;m just one message away!
+
       </motion.p>
     </div>
   );
