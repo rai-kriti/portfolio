@@ -62,51 +62,110 @@ export default function Home() {
           >
             <p>Hello, everyone!</p>
 
-            <p>
-              I am pleased to announce the launch of my personal portfolio website. 
-              This will serve as the central hub for my projects, experiments, and updates. 
-              Think of it as my own little corner on the web where I share what I build, learn, 
-              and break (and sometimes fix 😅).
-            </p>
+<p>
+  I am pleased to announce the launch of my personal portfolio website. 
+  This will serve as the central hub for my projects, experiments, and updates. 
+  Think of it as my own little corner on the web where I share what I build, learn, 
+  break, and sometimes fix.
+</p>
 
-            <p>In 2025, my portfolio will go through several iterations as I continue adding:</p>
+<p>
+  In 2025, my portfolio will go through many iterations as I continue adding more content.  
+  This first release marks the beginning of the journey.  
+  It is open for everyone to explore, scroll through, and maybe even get inspired.
+</p>
 
-            <ul className="list-disc ml-3 space-y-1">
-              <li>🚀 <strong>Projects</strong> (full-stack apps, DSA practice, microservices, AI experiments, and more)</li>
-              <li>✍️ <strong>Blogs & notes</strong> (my learnings, mistakes, and coding adventures)</li>
-              <li>🎯 <strong>Goals</strong> (things I am currently working towards)</li>
-            </ul>
+<p><strong>Guide to this world:</strong></p>
 
-            <p>
-              The very first release of my portfolio marks the beginning of this journey.
-              It is open for everyone to explore, stalk, and maybe even get inspired (or amused).
-            </p>
+<ul className="list-disc ml-4 space-y-2">
 
-            <p><strong>Some highlights of this launch:</strong></p>
-            <ul className="list-disc ml-3 space-y-1">
-              <li>🏠 Homepage with updates (just like this one).</li>
-              <li>📚 Catalog of projects with detailed writeups.</li>
-              <li>🏆 Contest/problem-solving section inspired by Codeforces.</li>
-              <li>📄 Resume & contact details for collaborations, opportunities, or just saying hi.</li>
-            </ul>
+  <li>
+    📚 <strong>Catalogues</strong> —  
+    My certificates and achievements.  
+    Proof that behind the jokes there is hard work. Proof that I was not chilling.
+  </li>
 
-            <p><strong>Special thanks to:</strong></p>
-            <ul className="list-disc ml-3 space-y-1">
-              <li>☕ Chai for powering the late-night coding.</li>
-              <li>🐞 Bugs (for teaching me patience).</li>
-              <li>💡 Curiosity (for making me start this in the first place).</li>
-            </ul>
+  <li>
+    🏋️‍♀️ <strong>Gym</strong> —  
+    All my projects live here.  
+    This is where ideas lift weights. Some are polished.  
+    Some are dusty. All are growing stronger.
+  </li>
 
-            <p><strong>Website Information:</strong></p>
-            <ul className="list-disc ml-5 space-y-1">
-              <li>Status: <span className="text-green-600 font-semibold">Live ✨</span></li>
-              <li>Built with: Next.js, Tailwind, and a pinch of chaos</li>
-              <li>Future updates: Dark mode toggle, blog system, and more projects.</li>
-            </ul>
+  <li>
+    🧩 <strong>Problem Set</strong> —  
+    My DSA world. LeetCode runs, contest logs,  
+    and logic puzzles that keep my brain warm.
+  </li>
 
-            <p>Picture of me (and some random code screenshots) coming soon 😄</p>
+  <li>
+    🏆 <strong>Contests</strong> —  
+    The arenas I stepped into.  
+    Sometimes I win. Sometimes I do not.  
+    But I always return sharper.
+  </li>
 
-            <p>I eagerly anticipate your visits, feedback, and maybe even feature requests!</p>
+  <li>
+    🗂️ <strong>Resume and Contact</strong> —  
+    For collaborations, opportunities, or a simple hello.
+  </li>
+
+</ul>
+
+<p className="mt-4">
+  A little about me: I am not the disciplined 5am routine type.  
+  I am the driven intensity type.  
+  I do not stay consistent with assignments.  
+  I stay consistent with winning.
+</p>
+
+<p>
+  I am solution oriented at my core.  
+  Give me a challenge and I will find a way.  
+  Give me a problem and I will break it down and rebuild it faster than it can break me.
+</p>
+
+<p>
+  This website is more than a portfolio.  
+  It is a timeline of how I grow, fail, fight, learn, and level up.  
+  Every section is a chapter.  
+  Every project is a version of me.  
+  Every bug I fix is a small plot twist.
+</p>
+
+<p>
+  This is Version 1.  
+  Messy in places. Honest everywhere.  
+  Improving constantly, just like the person behind it.
+</p>
+
+<p>
+  Explore it.  
+  Judge it.  
+  Take ideas from it.  
+  And if something breaks, relax. I am already fixing it.
+</p>
+
+<p><strong>Special thanks to:</strong></p>
+
+<ul className="list-disc ml-3 space-y-1">
+  <li>☕ Chai for powering the late night coding sessions.</li>
+  <li>🐞 Bugs for teaching me patience.</li>
+  <li>💡 Curiosity for making me start all of this.</li>
+</ul>
+
+<p><strong>Website Information:</strong></p>
+
+<ul className="list-disc ml-5 space-y-1">
+  <li>Status: <span className="text-green-600 font-semibold">Live</span></li>
+  <li>Built with: Next.js, Tailwind, and a pinch of chaos</li>
+  <li>Future updates: Dark mode, blog system, and more projects</li>
+</ul>
+
+<p>Picture of me and some code screenshots coming soon😁.</p>
+
+<p>I look forward to your visits, feedback, and feature requests.😊</p>
+
 
             <VoteBar />
           </div>
