@@ -2,17 +2,20 @@ import { promises as fs } from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request, { params }: { params: { filename: string } }) {
-  const { filename } = params;
+export async function GET(
+  req: Request,
+  context: { params: { filename: string } }
+) {
+  const filename = context.params.filename;
 
   const filePath = path.join(process.cwd(), "private_certs", filename);
 
   try {
     const file = await fs.readFile(filePath);
     return new NextResponse(file, {
-      headers: { "Content-Type": "application/pdf" }
+      headers: { "Content-Type": "application/pdf" },
     });
-  } catch (err) {
+  } catch (error) {
     return new NextResponse("File not found", { status: 404 });
   }
 }
