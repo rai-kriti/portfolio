@@ -46,7 +46,7 @@ export default function Home() {
             className="text-[14px]"
             style={{ fontFamily: "Verdana, Arial, sans-serif" }}
           >
-            By <span className="text-red-500 font-bold">KRITI RAI</span>, September 2024
+            By <span className="text-red-500 font-bold">KRITI RAI</span>, November 2025
             <img
               src="/indianflag.png"
               alt="Indian Flag"
