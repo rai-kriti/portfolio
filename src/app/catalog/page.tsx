@@ -12,6 +12,10 @@ const catalogData = [
         title: "LPU Academic Achiever", 
         link: process.env.NEXT_PUBLIC_CERT_LPU_ACADEMIC 
       },
+      {
+        title: "Summer Training",
+        link:  "https://www.cipherschools.com/certificate/preview?id=687f497d7efd6d50907047c6"
+      },
       { 
         title: "Computer Communication - University of Colorado", 
         link: process.env.NEXT_PUBLIC_CERT_COMPUTER_COMM 
