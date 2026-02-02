@@ -24,7 +24,7 @@ export default function Home() {
               className="text-[#3b5998] font-medium text-lg"
               style={{ fontFamily: "Verdana, Arial, sans-serif" }}
             >
-              My Portfolio Launch Announcement
+              My Portfolio Launch Announcement ! 
             </p>
             <button
               onClick={() => setIsSidebarOpen(true)}
