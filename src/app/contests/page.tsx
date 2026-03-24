@@ -1,132 +1,127 @@
-// app/contest/page.tsx
-import Image from "next/image";
+import Image from "next/image"
+"use client";
 
-export default function Contest() {
-  const contests = [
-    {
-      id: 1,
-      name: "Adobe India Hackathon",
-      writers: "Adobe",
-      start: "Nov 2024",
-      cert: "https://unstop.com/certificate-preview/242aa1d3-eb66-4e13-91b7-ac1b204ce751",
-    },
-    {
-      id: 2,
-      name: "L'Oréal Sustainability Challenge 2025",
-      writers: "L'Oréal",
-      start: "Oct 2024",
-      cert: "https://unstop.com/certificate-preview/f389d711-9ec1-451d-a8fb-b034e95b1249",
-    },
-  
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
+export default function EducationPage() {
+  const [selected, setSelected] = useState(null);
+
+  // 📈 Academic Data
+  const data = [
+    { sem: "Sem 1", cgpa: 7.8 },
+    { sem: "Sem 2", cgpa: 8.2 },
+    { sem: "Sem 3", cgpa: 8.6 },
+    { sem: "Sem 4", cgpa: 8.9 },
+    { sem: "Sem 5", cgpa: 9.1 },
   ];
 
+  // 🖼️ Achievement Images (replace with yours)
+  const items = Array.from({ length: 60 }, (_, i) => ({
+    id: i,
+    src: "/ach1.jpg", // change images
+    title: "Achievement " + (i + 1),
+  }));
+
   return (
-    <div className="bg-[#E1E1E1] min-h-screen flex flex-col items-center py-1 rounded-sm">
-      {/* Header */}
-      <span
-        className="text-[14px] flex items-center gap-1 mb-2 self-start my-1"
-        style={{
-          fontFamily: "Verdana, Arial, sans-serif",
-          marginLeft: "10px",
-        }}
-      >
-        Participated Contests
-        <img
-          src="https://img.icons8.com/ios-filled/50/list.png"
-          alt="list icon"
-          width={16}
-          height={16}
-          style={{
-            position: "relative",
-            cursor: "pointer",
-            opacity: 0.9,
-          }}
-        />
-      </span>
+    <div className="min-h-screen bg-[#0f0f0f] text-gray-300 p-6">
+      {/* 📈 GRAPH */}
+      <div className="border border-gray-700 rounded-xl p-4">
+        <p className="text-sm text-gray-500 mb-2">
+          Click on the graph to enable zoom feature.
+        </p>
 
-      {/* Table */}
-      <table
-        className="w-[calc(100%-10px)] mx-[1px] border border-gray-300 border-separate rounded-t-lg text-center shadow-sm bg-white"
-        style={{
-          fontFamily: "Verdana, Arial, sans-serif",
-          borderSpacing: "0",
-          boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <thead>
-          <tr className="bg-gray-100 text-black text-[14px]">
-            <th className="border border-gray-300 w-[140 px] h-[40px] rounded-tl-lg">
-              Name
-            </th>
-            <th className="border border-gray-300 w-[120px]">Writers</th>
-            <th className="border border-gray-300 w-[97px]">Start</th>
-            <th className="border border-gray-300 w-[60px]"></th>
-            <th className="border border-gray-300 w-[91px]">Score</th>
-            <th className="border border-gray-300 w-[109px] rounded-tr-lg">
-              Certificate
-            </th>
-          </tr>
-        </thead>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={data}>
+            <XAxis dataKey="sem" stroke="#888" />
+            <YAxis stroke="#888" />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="cgpa"
+              stroke="#facc15"
+              strokeWidth={2}
+              dot={{ r: 3 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
 
-        <tbody className="text-[13px] text-gray-800">
-          {contests.map((contest, index) => (
-            <tr
-              key={contest.id}
-              className={`${
-                index % 2 === 0 ? "bg-white" : "bg-[#F8F8F8]"
-              } hover:bg-gray-50 transition`}
+      {/* 🖼️ GRID (Heatmap → Photo Map) */}
+      <div className="border border-gray-700 rounded-xl p-4 mt-6">
+        <div className="flex justify-between text-sm text-gray-500 mb-4">
+          <span>Learning activity</span>
+          <span>Only academic milestones</span>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-12 gap-1">
+          {items.map((item) => (
+            <div
+              key={item.id}
+              className="w-5 h-5 bg-gray-800 rounded-sm overflow-hidden cursor-pointer"
+              onClick={() => setSelected(item)}
             >
-              {/* Name */}
-              <td className="border border-gray-300 h-[92px] align-middle px-2 text-center">
-                <span className="text-[13px]  cursor-pointer hover:text-[#551a8b]">
-                  {contest.name}
-                </span>
-              </td>
-
-              {/* Writers */}
-              <td className="border border-gray-300 align-middle text-red-500 font-bold ">
-                {contest.writers}
-              </td>
-
-              {/* Start */}
-              <td className="border border-gray-300 align-middle">
-                {contest.start}
-              </td>
-
-              {/* Empty column */}
-              <td className="border border-gray-300 align-middle"></td>
-
-              {/* Fake "Score" column */}
-              <td className="border border-gray-300 align-middle">
-                {Math.floor(Math.random() * 100)}%
-              </td>
-
-              {/* Certificate */}
-              <td className="border border-gray-300 align-middle">
-                {contest.cert !== "#" ? (
-                  <a
-                    href={contest.cert}
-                    className="text-[#0000cc] underline hover:text-[#551a8b]"
-                    target="_blank"
-                  >
-                    View
-                  </a>
-                ) : (
-                  <span className="text-gray-400">N/A</span>
-                )}
-              </td>
-            </tr>
+              <Image
+                src={item.src}
+                alt=""
+                width={20}
+                height={20}
+                className="object-cover"
+              />
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
 
-      {/* Footer note */}
-      <p
-        className="mt-4 text-gray-700 text-[13px] italic"
-        style={{ fontFamily: "Verdana, Arial, sans-serif" }}
-      >
-        🏆 Every contest adds a story — and a skill.
-      </p>
+      {/* 📊 STATS */}
+      <div className="grid grid-cols-3 gap-8 mt-8 text-center">
+        <div>
+          <h2 className="text-3xl font-semibold text-white">9.1</h2>
+          <p className="text-gray-500">current CGPA</p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-semibold text-white">12</h2>
+          <p className="text-gray-500">projects built</p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-semibold text-white">4</h2>
+          <p className="text-gray-500">core subjects mastered</p>
+        </div>
+      </div>
+
+      {/* 🔍 MODAL */}
+      {selected && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center"
+          onClick={() => setSelected(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.7 }}
+            animate={{ scale: 1 }}
+            className="bg-[#111] p-4 rounded-xl"
+          >
+            <Image
+              src={selected.src}
+              width={400}
+              height={300}
+              alt=""
+            />
+            <p className="mt-2 text-white">{selected.title}</p>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
